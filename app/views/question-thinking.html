@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href:"question-fingers.html",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/check-answers" method="post" novalidate>
+
+        {% from "textarea/macro.njk" import textarea %}
+
+{{ textarea({
+  label: {
+    text: "What am I thinking?",
+    size: "l",
+    isPageHeading: true
+  },
+  id: "thinking",
+  name: "thinking"
+}) }}
+
+       <form action="/check-answers.html" method="post" novalidate>
+        {{ button({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

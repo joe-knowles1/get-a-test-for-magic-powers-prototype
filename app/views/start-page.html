@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+
+{% from "breadcrumb/macro.njk" import breadcrumb %}
+{% from "button/macro.njk" import button %}
+{% from "inset-text/macro.njk" import insetText %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set dummyNhsNumber = "999 123 4567" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "https://service-manual.nhs.uk/",
+        text: "Service manual"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">Order a test to see if you have magic powers</h1>
+      <p>Use this service to order a test.</p>
+      <p>You do not need to order a test to know if you have magic powers, but it helps yeah?</p>
+
+      <h2 class="nhsuk-heading-l"> Who can use this service</h2>
+      <p>You can use this service if you suspect you have magic powers, but are unsure.</p>
+      <p>You can also use this service for someone else.</p>
+
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+      <p>You will need:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>suspension of disbelief</li>
+        <li>an open mind</li>
+      </ul>
+
+      <p>By using this service you agree to our <a href="#">terms of use</a> and confirm that you have read the <a href="#">privacy policy</a>.</p>
+
+      {% from "warning-callout/macro.njk" import warningCallout %}
+
+{{ warningCallout({
+  heading: "Magic is no joke",
+  text: "Thinking you have magic but refusing to get it verified is not big or clever. Nor is using magic to render this entire prototype meaningless - we think we've already achieved that, so the joke is on you."
+}) }}
+
+
+      {{ button({
+        text: "Start now",
+        href: "question-fingers.html"
+      }) }}
+
+      <h2 class="nhsuk-heading-m">Other ways to test if you have magic</h2>
+      <p>If you cannot be bothered to answer the questions, you can:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>try to perform some actual magic, such as turning your hand into a fork</li>
+        <li>jump out a window and see what happens</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

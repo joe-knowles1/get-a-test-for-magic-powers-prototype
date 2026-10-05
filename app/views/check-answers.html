@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% from "button/macro.njk" import button %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers before continuing</h1>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Number of fingers"
+            },
+            value: {
+              text: data.howmanyfingers
+            },
+            actions: {
+              items: [
+                {
+                  href: "question-fingers.html",
+                  text: "Change",
+                  visuallyHiddenText: "How many fingers"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What I'm thinking"
+            },
+            value: {
+              text: data.thinking
+            },
+            actions: {
+              items: [
+                {
+                  href: "question-thinking",
+                  text: "Change",
+                  visuallyHiddenText: "Change what I'm thinking"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="nhsuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        Your details will be sent to into the ether. Maybe. If you believe enough.
+      </p>
+
+      <form action="/complete.html" method="post" novalidate>
+        {{ button({
+          text: "Confirm and send"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
