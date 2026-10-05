@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href:"question-fingers.html",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/question-thinking" method="post" novalidate>
+      
+      {% from "checkboxes/macro.njk" import checkboxes %}
+
+{{ checkboxes({
+  fieldset: {
+    legend: {
+      text: "Assuming you had a big black pot, what would you put in it?",
+      size: "l",
+      isPageHeading: true
+    }
+  },
+  hint: {
+    text: "Select all the things you would add"
+  },
+  idPrefix: "example",
+  name: "example",
+  values: data.example,
+  items: [
+    {
+      value: "Frog's legs",
+      text: "Frog's legs"
+    },
+    {
+      value: "Brown leather shoe",
+      text: "Brown leather shoe"
+    },
+    {
+      value: "Sleight of hand",
+      text: "Sleight of hand"
+    },
+     {
+      value: "Elephant's ear",
+      text: "Elephant's ear"
+    },
+    {
+      value: "Hatred",
+      text: "Hatred"
+    },
+    {
+      value: "A sausage",
+      text: "A sausage"
+    }, 
+    {
+      value: "Nose of knat",
+      text: "Knat nose"
+    }, 
+    {
+      value: "Chicken lips",
+      text: "Chicken lips"
+    },
+    {
+      value: "Tinned tomatoes",
+      text: "Tinned tomatoes"
+    }, 
+    {
+      value: "Division",
+      text: "Division"
+    }
+  ]
+}) }}
+        {{ button({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -30,13 +30,29 @@
           },
           {
             key: {
+              text: "What's going in the pot"
+            },
+            value: {
+              text: data.example | join (", ")
+            },
+            actions: {
+              items: [
+                {
+                  href: "question-pot.html",
+                  text: "Change",
+                  visuallyHiddenText: "Things going in the pot"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "What I'm thinking"
             },
             value: {
               text: data.thinking
             },
-            actions: {
-              items: [
+            actions: {items: [
                 {
                   href: "question-thinking",
                   text: "Change",

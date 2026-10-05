@@ -20,7 +20,7 @@ router.post('/answer-fingers', function (req, res) {
 
   } else if (howmanyfingers === "Sixteen") {
 
-    res.redirect('/question-thinking')
+    res.redirect('/question-pot')
 
   } else {
 
