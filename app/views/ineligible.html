@@ -1,2 +1,44 @@
 {% extends "layout.html" %}
 
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "panel/macro.njk" import panel %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "question-fingers.html",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set panelHtml %}
+        <p>And you probably never have had it.</p>
+        <p>Most people will never be magic. You are clearly not. I mean, if you were, you could change this result.</p>
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Start again",
+            href: "start-page.html",
+            variant: "reverse"
+          }) }}
+        </div>
+      {% endset %}
+
+      {{ panel({
+        heading: {
+          text: "You do not have magic powers!",
+          size: "l"
+        },
+        html: panelHtml,
+        variant: "interruption"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
